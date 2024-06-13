@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israeli ID Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #idCard {
+            display: none;
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="idCard">
+        <h2>Israeli ID Card</h2>
+        <p><strong>Name:</strong> <span id="outputName"></span></p>
+        <p><strong>Family Name:</strong> <span id="outputFamilyName"></span></p>
+        <p><strong>Workplace:</strong> <span id="outputWorkplace"></span></p>
+        <p><strong>Living Place:</strong> <span id="outputLivingPlace"></span></p>
+    </div>
+    <form id="idForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="familyName">Family Name:</label><br>
+        <input type="text" id="familyName" name="familyName" required><br>
+        <label for="workplace">Workplace:</label><br>
+        <input type="text" id="workplace" name="workplace" required><br>
+        <label for="livingPlace">Living Place:</label><br>
+        <input type="text" id="livingPlace" name="livingPlace" required><br><br>
+        <button type="submit">Apply</button>
+    </form>
+
+    <script>
+        document.getElementById('idForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var familyName = document.getElementById('familyName').value;
+            var workplace = document.getElementById('workplace').value;
+            var livingPlace = document.getElementById('livingPlace').value;
+
+            document.getElementById('outputName').textContent = name;
+            document.getElementById('outputFamilyName').textContent = familyName;
+            document.getElementById('outputWorkplace').textContent = workplace;
+            document.getElementById('outputLivingPlace').textContent = livingPlace;
+
+            document.getElementById('idCard').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
